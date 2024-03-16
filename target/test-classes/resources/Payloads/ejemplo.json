@@ -1,0 +1,16 @@
+[
+    {
+        "empleado": {
+            "nombre": "juan",
+            "apellido": "lopez",
+            "web":"misitio.com"
+        }
+    },
+    {
+        "empleado ": {
+            "nombre":"pepe",
+            "apellido": "argento",
+            "web": "otrositio.com"
+        }
+    }
+]
