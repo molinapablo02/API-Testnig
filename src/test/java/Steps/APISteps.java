@@ -1,6 +1,10 @@
 package Steps;
 
 import static io.restassured.RestAssured.given;
+import static io.restassured.RestAssured.request;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import java.util.List;
 
 import io.cucumber.java.en.*;
 import io.restassured.http.ContentType;
@@ -16,10 +20,10 @@ private ValidatableResponse json;
 
     //primeros casos usando rest assured y cucumber
 
-    @Given("^The user sent a GET request to the endpoint$")
-    public void sentGETRequest(){
+    @Given("^The user send a GET request to the (.+) URI$")
+    public void sentGETRequest(String URI){
         request = given()
-                    .baseUri("https://api.github.com")
+                    .baseUri(URI)
                     .contentType(ContentType.JSON);
     }
 
@@ -32,10 +36,34 @@ private ValidatableResponse json;
 
                     json = response.then().statusCode(expectedStatusCode);
                      
-                    //hacer commit "correccion de erorr en clase APISteps-Then(\\d+)
+    }
+
+    @Then("^The user validates there are (\\d+) items on the (.+) endpoint$")
+    public void validateSize(int expectedSize, String path){
+
+        response = request
+                    .when()
+                    .get(path);
                     
+        List<String> jsonResponse = response.jsonPath().getList("$");
+        int listSize = jsonResponse.size();
+        //assertEquals(expectedSize, listSize);
+        assertEquals(expectedSize, listSize);
         
-                    //GENERAR EL REPORTE Y VER POR QUE FALLA EL TEST
-                    //holaa
+    }
+ 
+    @Then("^The user validates there is a value: (.+) in the response at (.+) endpoint$")
+    public void ValidateValue(String expectedValue, String path){
+
+        response = request
+                    .when()
+                    .get(path);
+
+        List<String> jsonResponse = response.jsonPath().getList("$");
+
+        String actualValue = jsonResponse.get(0);
+        assertEquals(expectedValue, actualValue);
+        
+
     }
 }

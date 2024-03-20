@@ -9,7 +9,6 @@ import io.cucumber.junit.CucumberOptions;
     features = "src/test/java/resources/features/APISteps.feature",
     glue = "Steps",
     tags = "@API" 
-    // AGREGAR ESTE PLUGIN PARA GENERAR LOS REPORTES pluggin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", json:target/cucumber-reports.json}
 )
 
 public class Runner {
@@ -17,3 +16,5 @@ public class Runner {
 }
 
 //borre <scope>test</scope> de cucumber-junit
+//creo q puedo usar el mismo given
+ //se agrega un nuevo Scenario y extent report cucumber 7 
