@@ -23,16 +23,19 @@ private ValidatableResponse json;
                     .contentType(ContentType.JSON);
     }
 
-    @Then("^The user get a list of (//d+) users$")
-    public void vadilateListOfUser(int expectedStatusCode){
+    @Then("^The user get a (\\d+) status code$")
+    public void vadilateStatusCode(int expectedStatusCode){
 
-        response = request.
-                    when()
-                    .get("/users/pablomolina02/repos");
+        response = request
+                    .when()
+                    .get("/users/molinapablo02/repos");
 
                     json = response.then().statusCode(expectedStatusCode);
+                     
+                    //hacer commit "correccion de erorr en clase APISteps-Then(\\d+)
                     
         
                     //GENERAR EL REPORTE Y VER POR QUE FALLA EL TEST
+                    //holaa
     }
 }

@@ -2,7 +2,7 @@ package Steps;
 
 import static io.restassured.RestAssured.given;
 
-import org.junit.Test;
+
 
 public class EjemploAPI {
     
@@ -10,7 +10,7 @@ public class EjemploAPI {
         given()
         .baseUri("https://api.github.com")
         .when()
-        .get("users/pablomolina02/repos");
+        .get("users/molinapablo02/repos");
     }
 
     public void POSTrequest(){

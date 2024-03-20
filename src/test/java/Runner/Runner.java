@@ -9,6 +9,7 @@ import io.cucumber.junit.CucumberOptions;
     features = "src/test/java/resources/features/APISteps.feature",
     glue = "Steps",
     tags = "@API" 
+    // AGREGAR ESTE PLUGIN PARA GENERAR LOS REPORTES pluggin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", json:target/cucumber-reports.json}
 )
 
 public class Runner {
