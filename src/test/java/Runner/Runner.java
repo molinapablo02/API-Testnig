@@ -4,6 +4,8 @@ import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
 
+//Buscar plugin para generar los reportes
+
 @RunWith(Cucumber.class)
 @CucumberOptions(
     features = "src/test/java/resources/features/APISteps.feature",
